@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "ADC.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,148 @@
 # 1 "<built-in>" 2
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 12 "main.c"
+# 1 "ADC.c" 2
+
+
+
+
+
+
+
+# 1 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 1 3
+# 13 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef signed char int8_t;
+
+
+
+
+
+
+typedef signed int int16_t;
+
+
+
+
+
+
+
+typedef __int24 int24_t;
+
+
+
+
+
+
+
+typedef signed long int int32_t;
+# 52 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef unsigned char uint8_t;
+
+
+
+
+
+typedef unsigned int uint16_t;
+
+
+
+
+
+
+typedef __uint24 uint24_t;
+
+
+
+
+
+
+typedef unsigned long int uint32_t;
+# 88 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef signed char int_least8_t;
+
+
+
+
+
+
+
+typedef signed int int_least16_t;
+# 109 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef __int24 int_least24_t;
+# 118 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef signed long int int_least32_t;
+# 136 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef unsigned char uint_least8_t;
+
+
+
+
+
+
+typedef unsigned int uint_least16_t;
+# 154 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef __uint24 uint_least24_t;
+
+
+
+
+
+
+
+typedef unsigned long int uint_least32_t;
+# 181 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef signed char int_fast8_t;
+
+
+
+
+
+
+typedef signed int int_fast16_t;
+# 200 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef __int24 int_fast24_t;
+
+
+
+
+
+
+
+typedef signed long int int_fast32_t;
+# 224 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+# 240 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef __uint24 uint_fast24_t;
+
+
+
+
+
+
+typedef unsigned long int uint_fast32_t;
+# 268 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef int32_t intmax_t;
+# 282 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
+typedef uint32_t uintmax_t;
+
+
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 9 "ADC.c" 2
 # 1 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2488,304 +2628,12 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "/Applications/microchip/mplabx/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8/pic/include/xc.h" 2 3
-# 13 "main.c" 2
-# 1 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 1 3
-# 13 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef signed char int8_t;
+# 10 "ADC.c" 2
 
+uint8_t readADC(void) {
 
-
-
-
-
-typedef signed int int16_t;
-
-
-
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-
-
-
-typedef signed long int int32_t;
-# 52 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef unsigned char uint8_t;
-
-
-
-
-
-typedef unsigned int uint16_t;
-
-
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-
-
-typedef unsigned long int uint32_t;
-# 88 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef signed char int_least8_t;
-
-
-
-
-
-
-
-typedef signed int int_least16_t;
-# 109 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef __int24 int_least24_t;
-# 118 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef signed long int int_least32_t;
-# 136 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef unsigned char uint_least8_t;
-
-
-
-
-
-
-typedef unsigned int uint_least16_t;
-# 154 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef __uint24 uint_least24_t;
-
-
-
-
-
-
-
-typedef unsigned long int uint_least32_t;
-# 181 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef signed char int_fast8_t;
-
-
-
-
-
-
-typedef signed int int_fast16_t;
-# 200 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef __int24 int_fast24_t;
-
-
-
-
-
-
-
-typedef signed long int int_fast32_t;
-# 224 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef unsigned char uint_fast8_t;
-
-
-
-
-
-typedef unsigned int uint_fast16_t;
-# 240 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef __uint24 uint_fast24_t;
-
-
-
-
-
-
-typedef unsigned long int uint_fast32_t;
-# 268 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef int32_t intmax_t;
-# 282 "/Applications/microchip/xc8/v2.31/pic/include/c90/stdint.h" 3
-typedef uint32_t uintmax_t;
-
-
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-# 14 "main.c" 2
-# 1 "./ADC.h" 1
-# 36 "./ADC.h"
-uint8_t readADC ();
-# 15 "main.c" 2
-
-
-
-
-
-
-
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
-
-
-
-
-uint8_t v_tmr0;
-uint8_t count;
-uint8_t b_inc;
-uint8_t b_dec;
-
-
-uint8_t VAR;
-
-uint8_t banderaT0;
-
-
-
-
-
-
-
-void setup(void);
-
-
-
-
-
-void __attribute__((picinterrupt(("")))) ISR(void){
-
-
-    if (INTCONbits.RBIF)
-    {
-        if (PORTBbits.RB0 == 1) {b_inc = 1;}
-        if (PORTBbits.RB0 == 0 && b_inc == 1)
-            {
-                b_inc = 0;
-                PORTC++;
-            }
-
-        if (PORTBbits.RB1 == 1){b_dec = 1;}
-        if (PORTBbits.RB1 == 0 && b_dec == 1)
-            {
-                b_dec = 0;
-                PORTC--;
-            }
-
-        INTCONbits.RBIF = 0;
-    }
-
-
-    if (PIR1bits.ADIF)
-    {
-        VAR = readADC();
-        PORTD = VAR;
-    }
-
-
-}
-
-
-
-
-
-void main(void)
-{
-
-    setup();
-
-
-
-
-
-    while (1)
-    {
-
-    ADCON0bits.GO_DONE = 1;
-    _delay((unsigned long)((50)*(4000000/4000000.0)));
-
-    }
-}
-
-
-
-
-
-void setup(void) {
-
-
-
-    TRISA=0x01;
-    PORTA = 0;
-    TRISB=0xFF;
-    PORTB = 0;
-    TRISC = 0;
-    PORTC = 0;
-    TRISD = 0;
-    PORTD = 0;
-    TRISE = 0;
-    PORTE = 0;
-    ANSEL=0x01;
-    ANSELH = 0;
-
-
-
-    OSCCONbits.IRCF = 0b0110;
-    OSCCONbits.SCS = 1;
-
-
-
+    uint8_t val = ADRESH;
     PIR1bits.ADIF = 0;
-    PIE1bits.ADIE = 1;
 
-    INTCONbits.PEIE = 1;
-    INTCONbits.GIE = 1;
-    INTCONbits.RBIE = 1;
-
-    IOCBbits.IOCB0 = 1;
-    IOCBbits.IOCB1 = 1;
-
-
-
-
-    ADCON0bits.ADCS1 = 0;
-    ADCON0bits.ADCS0 = 1;
-
-    ADCON1bits.VCFG0 = 0;
-    ADCON1bits.VCFG1 = 0;
-
-    ADCON1bits.ADFM = 0;
-
-    ADCON0bits.ADON = 1;
-
-    ADCON0bits.CHS = 0;
-    _delay((unsigned long)((50)*(4000000/4000000.0)));
-
-    ADCON0bits.GO_DONE = 1;
-    _delay((unsigned long)((5)*(4000000/4000.0)));
-
-
+    return val;
 }

@@ -11,6 +11,7 @@
 //******************************************************************************
 #include <xc.h>
 #include <stdint.h>
+#include "ADC.h"
 
 
 //******************************************************************************
@@ -42,7 +43,9 @@ uint8_t v_tmr0;      //banderas para el anti rebote de cada una de los botones
 uint8_t count;       //contador de pulsos de cada boton
 uint8_t b_inc;
 uint8_t b_dec;
-uint8_t numero;
+
+
+uint8_t VAR;
 
 uint8_t banderaT0;
 
@@ -80,6 +83,13 @@ void __interrupt() ISR(void){
         INTCONbits.RBIF = 0;   
     }
     
+    // INTERRUPCION DEL ADC
+    if (PIR1bits.ADIF)
+    {   
+        VAR = readADC();
+        PORTD = VAR;
+    }
+    
     
 }
 
@@ -90,7 +100,7 @@ void __interrupt() ISR(void){
 void main(void) 
 {
 
-    setup();    //configuracion
+    setup();    //CONFIGURACION
 
     //**************************************************************************
     // Loop Principal
@@ -99,7 +109,8 @@ void main(void)
     while (1) 
     {
         
-    
+    ADCON0bits.GO_DONE = 1;
+    __delay_us(50);
     
     }
 }
@@ -122,22 +133,44 @@ void setup(void) {
     PORTD = 0;  // TODO D APAGADO
     TRISE = 0;  // TODO E OUTPUT
     PORTE = 0;  // TODA E APAGADO
-    ANSEL = 0;  // PARA NO USARLO COMO ANALOGICO
+    ANSEL=0x01; // PARA USAR PORTA0 COMO ANALOGICO
     ANSELH = 0; // PARA NO USARLO COMO ANALOGICO
     
   
     // OSCILADOR
-    OSCCONbits.IRCF = 0b0111; //8MHz
+    OSCCONbits.IRCF = 0b0110; //8MHz
     OSCCONbits.SCS = 1;
     
     
     // INTERRUPCIONES
+    PIR1bits.ADIF = 0;  //Limpiar la bandera de interrupcion ADC
+    PIE1bits.ADIE = 1;  //Habilitar la interrupcion ADC
+    
+    INTCONbits.PEIE = 1; //Habilitar interrupciones Perifericas
     INTCONbits.GIE = 1;  //Habilitar Interrupciones Globales
     INTCONbits.RBIE = 1; //Habilitar IOC
    
     IOCBbits.IOCB0 = 1; //Interrupt-on-change enabled PB0
     IOCBbits.IOCB1 = 1; //Interrupt-on-change enabled PB1
     
+    
+    
+    // CONFIGURACION MODULO ADC
+    ADCON0bits.ADCS1 = 0;
+    ADCON0bits.ADCS0 = 1;    
+    
+    ADCON1bits.VCFG0 = 0;
+    ADCON1bits.VCFG1 = 0;
+
+    ADCON1bits.ADFM = 0; //Justificado a la izquierda
+    
+    ADCON0bits.ADON = 1;
+    
+    ADCON0bits.CHS = 0; //AN0 en el PORTA0
+    __delay_us(50);
+    
+    ADCON0bits.GO_DONE = 1;
+    __delay_ms(5);
    
             
 }
