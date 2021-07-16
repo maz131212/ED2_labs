@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/Applications/microchip/xc8/v2.31/pic/dat/en_msgs.txt -cn \
   -h+dist/default/production/lab0_ed2.X.production.sym \
   --cmf=dist/default/production/lab0_ed2.X.production.cmf -z -Q16F887 \
-  -o/tmp/xcu9VDu2G --defsym=__MPLAB_BUILD=1 \
+  -o/tmp/xcoBbSZpj --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/lab0_ed2.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k /tmp/xcIm8x4VR.o \
+  -pfunctab=ENTRY -k /tmp/xcBCj8jmz.o \
   dist/default/production/lab0_ed2.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcIm8x4VR.o
+/tmp/xcBCj8jmz.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        2        0       4
 dist/default/production/lab0_ed2.X.production.o
@@ -37,7 +37,7 @@ dist/default/production/lab0_ed2.X.production.o
                 text3                               768      768       92      ED0       0
                 text2                               6F9      6F9       6F      DF2       0
                 text1                               6D0      6D0       29      DA0       0
-                maintext                            6BB      6BB       15      D76       0
+                maintext                            6BC      6BC       14      D78       0
                 cstackCOMMON                         70       70        8       70       1
                 bssCOMMON                            78       78        2       70       1
 
@@ -50,7 +50,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text3                               768      768       92         0
                 text2                               6F9      6F9       6F         0
                 text1                               6D0      6D0       29         0
-                maintext                            6BB      6BB       15         0
+                maintext                            6BC      6BC       14         0
 
         CLASS   STRCODE        
 
@@ -100,7 +100,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 text2                          0006F9  00006F  000768       DF2       0  CODE        2
                 reset_vec                      000000  000003  000003         0       0  CODE        2
                 text1                          0006D0  000029  0006F9       DA0       0  CODE        2
-                maintext                       0006BB  000015  0006D0       D76       0  CODE        2
+                maintext                       0006BC  000014  0006D0       D78       0  CODE        2
                 cstackCOMMON                   000070  00000A  00007A        70       1  COMMON      1
                 cinit                          0007FA  000006  000800       FF4       0  CODE        2
 
@@ -112,13 +112,13 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0003-06BA            6B8           2
+        CODE             0003-06BB            6B9           2
                          0800-1FFF            800
         COMMON           007A-007D              4           1
-        CONST            0003-06BA            100           2
+        CONST            0003-06BB            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-06BA            100           2
+        ENTRY            0003-06BB            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
@@ -130,9 +130,9 @@ UNUSED ADDRESS RANGES
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
-        STRCODE          0003-06BA            6B8           2
+        STRCODE          0003-06BB            6B9           2
                          0800-1FFF           1800
-        STRING           0003-06BA            100           2
+        STRING           0003-06BB            100           2
                          0800-1FFF            100
 
                                   Symbol Table
@@ -238,7 +238,7 @@ __end_of_setup           text1        06F9
 __initialization         cinit        07FA
 __pbssCOMMON             bssCOMMON    0078
 __pcstackCOMMON          cstackCOMMON 0070
-__pmaintext              maintext     06BB
+__pmaintext              maintext     06BC
 __ptext1                 text1        06D0
 __ptext2                 text2        06F9
 __ptext3                 text3        0768
@@ -246,7 +246,7 @@ __size_of_Config_7       (abs)        0000
 __size_of_main           (abs)        0000
 __size_of_semaforo       (abs)        0000
 __size_of_setup          (abs)        0000
-_main                    maintext     06BB
+_main                    maintext     06BC
 _numero                  bssCOMMON    0079
 _semaforo                text2        06F9
 _setup                   text1        06D0
@@ -298,7 +298,7 @@ Total ram usage:        0 bytes
 
  *************** function _setup *****************
  Defined at:
-		line 97 in file "main.c"
+		line 92 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -327,7 +327,7 @@ Total ram usage:        0 bytes
 
  *************** function _semaforo *****************
  Defined at:
-		line 200 in file "main.c"
+		line 195 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -357,7 +357,7 @@ Total ram usage:        3 bytes
 
  *************** function _Config_7 *****************
  Defined at:
-		line 138 in file "main.c"
+		line 133 in file "main.c"
  Parameters:    Size  Location     Type
   numero7         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -396,10 +396,10 @@ shared
 shared estimated size: 2
 
 main.c
-		_main          		CODE           	06BB	0000	21
+		_main          		CODE           	06BC	0000	20
 		_Config_7      		CODE           	0768	0000	146
 		_semaforo      		CODE           	06F9	0000	111
 		_setup         		CODE           	06D0	0000	41
 
-main.c estimated size: 319
+main.c estimated size: 318
 

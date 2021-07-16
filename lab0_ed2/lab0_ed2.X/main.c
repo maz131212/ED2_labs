@@ -77,12 +77,7 @@ void main(void)
     while(PORTBbits.RB0 == 0);
     semaforo();
     
-    while(ganador == 0){
-        
-        
-        
-        
-    }
+ 
     
     
     

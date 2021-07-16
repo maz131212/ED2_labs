@@ -2680,12 +2680,7 @@ void main(void)
     while(PORTBbits.RB0 == 0);
     semaforo();
 
-    while(ganador == 0){
 
-
-
-
-    }
 
 
 
@@ -2718,7 +2713,7 @@ void setup(void) {
 
     OSCCONbits.IRCF = 0b0111;
     OSCCONbits.SCS = 1;
-# 132 "main.c"
+# 127 "main.c"
 }
 
 
